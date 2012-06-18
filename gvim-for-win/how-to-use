@@ -1,0 +1,8 @@
+Requiment: vim 7.3
+
+copy vimrc to ~/.vimrc
+copy gvimrc to ~/.gvimrc
+copy other directories to ~/.vim
+
+rebuild the help tags file:
+  :helptags ~/.vim/doc
