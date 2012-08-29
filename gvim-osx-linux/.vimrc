@@ -21,8 +21,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'groenewege/vim-less'
+Bundle 'wavded/vim-stylus'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'mattn/zencoding-vim'
+Bundle 'Lokaltog/vim-easymotion'
 "
 " vim-scripts repos
 "Bundle 'L9'
@@ -54,8 +56,10 @@ if has("autocmd")
 endif
 
 " Or set backupdir to place the backup file in a central forlder
-set nobackup
-set nowritebackup
+"set nobackup
+"set nowritebackup
+set backupdir=~/.vim/backup//,E:/hulufei/tmp/backup//
+set directory=~/.vim/swp//,E:/hulufei/tmp/swp//
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
@@ -165,6 +169,8 @@ autocmd BufWritePost,FileWritePost *.less !lessc <afile> <afile>:p:h:h/<afile>:t
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc  " MacOSX/Linux
 set wildignore+=tmp\*,*.swp,*.zip,*.exe,*.pyc   " Windows
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_working_path_mode = 2
+let g:ctrlp_root_markers = ['static/']
 " Use a custom file listing command
 "let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
