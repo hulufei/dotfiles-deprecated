@@ -132,6 +132,7 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize   = 30
 let g:netrw_keepdir= 1
 let g:netrw_altv = 1
+let g:netrw_list_hide = '^\..*'
 
 "Change the <leader> key, <,> is easier to type than <\>
 let mapleader = ","
@@ -178,6 +179,7 @@ let g:ctrlp_root_markers = ['static/']
 " Vim-indent
 let g:indent_guides_guide_size=1
 
+" vertical line ruler
 map ,ch :call SetColorColumn()<CR>
 function! SetColorColumn()
     let col_num = virtcol(".")
@@ -189,6 +191,6 @@ function! SetColorColumn()
     endif
 endfunction
 
-"syntax enable
-"set background=dark
-"colorscheme solarized
+syntax enable
+set background=dark
+colorscheme solarized
