@@ -145,6 +145,12 @@ let g:user_zen_expandabbr_key = '<c-e>'
 au FileType javascript setlocal foldmethod=marker
 au FileType javascript setlocal foldmarker={,}
 
+" markdown file type
+au BufRead,BufNewFile *.{md,markdown} set filetype=markdown
+
+" Autosave
+"au InsertLeave <buffer> write
+
 "Enable Syntastic plugin
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
