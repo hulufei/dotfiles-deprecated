@@ -9,8 +9,7 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-fugitive'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'tpope/vim-rails.git'
 Bundle 'altercation/vim-colors-solarized'
@@ -31,7 +30,7 @@ Bundle 'vim-scripts/ZoomWin'
 Bundle 'mileszs/ack.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'nelstrom/vim-visual-star-search'
-" Bundle 'Raimondi/delimitMate'
+Bundle 'Raimondi/delimitMate'
 
 "
 " vim-scripts repos
@@ -146,7 +145,7 @@ nnoremap k gk
 inoremap jj <ESC>
 
 "Shortcut for NERDTree plugin
-map <F2> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle %<CR>
 "map <F2> :Explore<CR>
 
 "Change the <leader> key, <,> is easier to type than <\>
@@ -319,11 +318,11 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 
 "Invisible character colors
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
+" highlight NonText guifg=#4a4a59
+" highlight SpecialKey guifg=#4a4a59
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
