@@ -59,11 +59,11 @@ if has("autocmd")
   filetype plugin indent on
 endif
 
-" Or set backupdir to place the backup file in a central forlder
-"set nobackup
-"set nowritebackup
-set backupdir=~/.vim/backup//,E:/hulufei/tmp/backup//
-set directory=~/.vim/swp//,E:/hulufei/tmp/swp//
+" set backupdir=~/.vim/backups//,E:/hulufei/tmp/backup//
+" set directory=~/.vim/swps//,E:/hulufei/tmp/swp//
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
 if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
@@ -202,7 +202,7 @@ au BufRead,BufNewFile *.{md,markdown} set filetype=markdown
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
 " Autosave
-au InsertLeave <buffer> write
+"au InsertLeave <buffer> write
 
 "Enable Syntastic plugin
 "set statusline+=%#warningmsg#
@@ -343,5 +343,6 @@ set background=dark
 "autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 
 " Cut/Copy/Paste as global
+" Use Ctrl-Q for block visual mode, see http://goo.gl/8EpnR
 source $VIMRUNTIME/mswin.vim
 behave mswin
