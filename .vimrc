@@ -31,6 +31,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'Raimondi/delimitMate'
+Bundle 'hulufei/vim-indexed-search'
 
 "
 " vim-scripts repos
@@ -128,6 +129,8 @@ set ambiwidth=double
 
 set sessionoptions+=resize
 
+set iskeyword+=-
+
 " Use relative line numbers, new in Vim 7.3
 if exists("&relativenumber")
 	set relativenumber
@@ -145,7 +148,9 @@ nnoremap k gk
 inoremap jj <ESC>
 
 "Shortcut for NERDTree plugin
-map <F2> :NERDTreeToggle %<CR>
+map <F2> :NERDTreeToggle<CR>
+map <c-o> :NERDTreeFind<cr>
+" map <F2> :NERDTreeToggle %<CR>
 "map <F2> :Explore<CR>
 
 "Change the <leader> key, <,> is easier to type than <\>
@@ -336,3 +341,7 @@ set background=dark
 "autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 "autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
 "autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+
+" Cut/Copy/Paste as global
+source $VIMRUNTIME/mswin.vim
+behave mswin
