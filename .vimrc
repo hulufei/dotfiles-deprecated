@@ -32,6 +32,12 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'Raimondi/delimitMate'
 Bundle 'hulufei/vim-indexed-search'
+Bundle 'benmills/vimux'
+" vim-snipmate
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "hulufei/vim-snippets"
 
 "
 " vim-scripts repos
@@ -115,6 +121,8 @@ set tabstop=4
 set shiftwidth=4
 set nu
 set foldmethod=indent
+"5行以下不要折叠
+set foldminlines=5
 
 "These lines manage my line wrapping settings and also show a colored column
 "at 85 characters
