@@ -262,6 +262,8 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+" Repalce current words with yanked content
+nnoremap <leader>p viw p
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
