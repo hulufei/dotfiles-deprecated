@@ -38,6 +38,9 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "hulufei/vim-snippets"
+Bundle "AndrewRadev/splitjoin.vim"
+Bundle "godlygeek/tabular"
+Bundle "editorconfig/editorconfig-vim"
 
 "
 " vim-scripts repos
@@ -253,6 +256,10 @@ nmap <F4> :IndentGuidesToggle<cr>
 " nmap  <D-/> :
 nnoremap <leader>a :Ack
 " nnoremap <leader>v V`]
+
+" splitjoin
+nmap sj :SplitjoinSplit<cr>
+nmap sk :SplitjoinJoin<cr>
 
 "------------------
 " Useful Functions
