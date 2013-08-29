@@ -229,7 +229,7 @@ let g:syntastic_enable_signs=1
 " exclude directories or files from the search
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
 " set wildignore+=tmp\*,*.swp,*.zip,*.exe,*.pyc   " Windows
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|node_modules$'
 let g:ctrlp_working_path_mode = 2
 
 " Vim-indent
