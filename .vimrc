@@ -1,5 +1,7 @@
 set nocompatible
 filetype off
+syntax enable
+filetype plugin indent on
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " let Vundle manage Vundle
@@ -50,22 +52,10 @@ Bundle "editorconfig/editorconfig-vim"
 " non github repos
 "Bundle 'git://git.wincent.com/command-t.git'
 
-" Vim5 and later versions support syntax highlighting. Uncommenting the
-" following enables syntax highlighting by default.
-if has("syntax")
-  syntax on
-endif
-
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-if has("autocmd")
-  filetype plugin indent on
 endif
 
 " set backupdir=~/.vim/backups//,E:/hulufei/tmp/backup//
@@ -77,7 +67,8 @@ if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
 
-"A few options that just make things better
+set clipboard=unnamed " yank and paste with the system clipboard
+" A few options that just make things better
 set encoding=utf-8 nobomb
 set scrolloff=3
 set autoindent
@@ -158,13 +149,13 @@ nnoremap k gk
 "Quicker Escaping, note conflict when type 'jj' in insert mode
 inoremap jj <ESC>
 
-"Shortcut for NERDTree plugin
+" Shortcut for NERDTree plugin
 map <F2> :NERDTreeToggle<CR>
 map <c-o> :NERDTreeFind<cr>
 " map <F2> :NERDTreeToggle %<CR>
-"map <F2> :Explore<CR>
+" map <F2> :Explore<CR>
 
-"Change the <leader> key, <,> is easier to type than <\>
+" Change the <leader> key, <,> is easier to type than <\>
 let mapleader = ","
 
 " Nerd Tree
@@ -174,20 +165,13 @@ let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 " let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
-"let NERDTreeWinPos = "right"
+" let NERDTreeWinPos = "right"
 
 " NerdCommenter
 let NERDSpaceDelims=1
 
-" Enable omni completion.
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-" autocmd FileType c setlocal omnifunc=ccomplete#Complete
-
 " SuperTab
-"let g:SuperTabDefultCompletionType='context'
+" let g:SuperTabDefultCompletionType='context'
 " let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
 " let g:SuperTabRetainCompletionType=2
 
@@ -201,19 +185,6 @@ let g:netrw_list_hide = '^\..*'
 
 "Key mapping for zen coding
 let g:user_zen_expandabbr_key = '<c-e>'
-
-"By default Vim doesn't fold Javascript files,but you can add some
-"basic,perfectly serviceable folding with these two lines in your .vimrc
-au FileType javascript setlocal foldmethod=marker
-au FileType javascript setlocal foldmarker={,}
-
-" markdown file type
-au BufRead,BufNewFile *.{md,markdown} set filetype=markdown
-" Treat .json files as .js
-autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-
-" Autosave
-"au InsertLeave <buffer> write
 
 "Enable Syntastic plugin
 "set statusline+=%#warningmsg#
@@ -231,6 +202,7 @@ set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_S
 " set wildignore+=tmp\*,*.swp,*.zip,*.exe,*.pyc   " Windows
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|node_modules$'
 let g:ctrlp_working_path_mode = 2
+let g:ctrlp_match_window = 'order:ttb,max:20'
 
 " Vim-indent
 let g:indent_guides_guide_size=1
@@ -253,9 +225,7 @@ set lcs=tab:▸\ ,eol:¬,nbsp:_
 " nmap <F6> :NERDTreeToggle<cr>
 " nmap <F3> :GundoToggle<cr>
 nmap <F4> :IndentGuidesToggle<cr>
-" nmap  <D-/> :
 nnoremap <leader>a :Ack
-" nnoremap <leader>v V`]
 
 " splitjoin
 nmap sj :SplitjoinSplit<cr>
@@ -264,6 +234,10 @@ nmap sk :SplitjoinJoin<cr>
 "------------------
 " Useful Functions
 "------------------
+" eggcache vim
+nnoremap ; :
+" w!! to sudo & write a file
+cmap w!! w !sudo tee >/dev/null %
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -271,20 +245,28 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 " Repalce current words with yanked content
 nnoremap <leader>p viw p
+" Ctrlp shortcuts
+nmap <leader>b :CtrlPBuffer<CR>
 
-" When editing a file, always jump to the last cursor position
-autocmd BufReadPost *
-      \ if ! exists("g:leave_my_cursor_position_alone") |
-      \     if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \         exe "normal g'\"" |
-      \     endif |
-      \ endif
+"By default Vim doesn't fold Javascript files,but you can add some
+"basic,perfectly serviceable folding with these two lines in your .vimrc
+au FileType javascript setlocal foldmethod=marker
+au FileType javascript setlocal foldmarker={,}
+" markdown file type
+au BufRead,BufNewFile *.{md,markdown} set filetype=markdown
+" Treat .json files as .js
+autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+" Autosave
+" au InsertLeave <buffer> write
 
-" w!! to sudo & write a file
-cmap w!! w !sudo tee >/dev/null %
-
-" eggcache vim
-nnoremap ; :
+" Enable omni completion.
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType c setlocal omnifunc=ccomplete#Complete
 
 " Return indent (all whitespace at start of a line), converted from
 " tabs to spaces if what = 1, or from spaces to tabs otherwise.
@@ -366,28 +348,40 @@ function! SummarizeTabs()
   endtry
 endfunction
 
-syntax enable
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --column'
+
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+" Go crazy!
+if filereadable(expand("~/.vimrc.local"))
+  " In your .vimrc.local, you might like:
+  "
+  " set autowrite
+  " set nocursorline
+  " set nowritebackup
+  " set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
+  "
+  " autocmd! bufwritepost .vimrc source ~/.vimrc
+  " noremap! jj <ESC>
+  source ~/.vimrc.local
+endif
+
 set background=dark
 " colorscheme solarized
 
-"Invisible character colors
-" highlight NonText guifg=#4a4a59
-" highlight SpecialKey guifg=#4a4a59
-
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-"set background=dark
+" set background=dark
 
-" Inspiration
-"autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-"autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-"autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-"autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-"autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-"autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
-"autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-
+" TODO: test in linux, maybe move to .vimrc.local as set clipboard to unamed
 " Cut/Copy/Paste as global
 " Use Ctrl-Q for block visual mode, see http://goo.gl/8EpnR
-source $VIMRUNTIME/mswin.vim
-behave mswin
+" source $VIMRUNTIME/mswin.vim
+" behave mswin
