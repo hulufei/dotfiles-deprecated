@@ -1,7 +1,5 @@
 set nocompatible
 filetype off
-syntax enable
-filetype plugin indent on
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " let Vundle manage Vundle
@@ -35,16 +33,17 @@ Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'Raimondi/delimitMate'
 Bundle 'hulufei/vim-indexed-search'
 Bundle 'benmills/vimux'
+
 " vim-snipmate
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "hulufei/vim-snippets"
+
 Bundle "AndrewRadev/splitjoin.vim"
 Bundle "godlygeek/tabular"
 Bundle "editorconfig/editorconfig-vim"
 
-"
 " vim-scripts repos
 "Bundle 'L9'
 "Bundle 'FuzzyFinder'
@@ -358,6 +357,12 @@ if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+" Why is VIM not detecting my coffescript filetype?
+" The solution is to move syntax enable to the bottom of vimrc.
+" http://goo.gl/E98yYi
+syntax enable
+filetype plugin indent on
 
 " Go crazy!
 if filereadable(expand("~/.vimrc.local"))
