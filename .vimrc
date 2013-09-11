@@ -9,15 +9,15 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-Bundle 'tpope/vim-fugitive'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'tpope/vim-rails.git'
+" Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
+" enhance surround.vim, . to repeat command
+Bundle 'tpope/vim-repeat'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'groenewege/vim-less'
@@ -32,7 +32,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'Raimondi/delimitMate'
 Bundle 'hulufei/vim-indexed-search'
-Bundle 'benmills/vimux'
+" Bundle 'benmills/vimux'
 
 " vim-snipmate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -43,6 +43,9 @@ Bundle "hulufei/vim-snippets"
 Bundle "AndrewRadev/splitjoin.vim"
 Bundle "godlygeek/tabular"
 Bundle "editorconfig/editorconfig-vim"
+
+Bundle "kien/rainbow_parentheses.vim"
+Bundle "bronson/vim-trailing-whitespace"
 
 " vim-scripts repos
 "Bundle 'L9'
@@ -182,6 +185,21 @@ let g:netrw_keepdir= 0
 let g:netrw_altv = 1
 let g:netrw_list_hide = '^\..*'
 
+" for code alignment
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
+" settings for kien/rainbow_parentheses.vim
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Strip trailing whitespace
+map <leader><space> :FixWhitespace<cr>
+
 "Key mapping for zen coding
 let g:user_zen_expandabbr_key = '<c-e>'
 
@@ -307,15 +325,7 @@ function! SetColorColumn()
         execute "set cc-=".col_num
     endif
 endfunction
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
+
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
