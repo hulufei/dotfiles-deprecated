@@ -3,17 +3,18 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 "
 " My Bundles here:
 "
 " original repos on github
-" Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
+" Bundle 'scrooloose/nerdcommenter'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
 " enhance surround.vim, . to repeat command
@@ -22,7 +23,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
-Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'mattn/zencoding-vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'ervandew/supertab'
@@ -35,17 +37,24 @@ Bundle 'hulufei/vim-indexed-search'
 " Bundle 'benmills/vimux'
 
 " vim-snipmate
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "hulufei/vim-snippets"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'hulufei/vim-snippets'
 
-Bundle "AndrewRadev/splitjoin.vim"
-Bundle "godlygeek/tabular"
-Bundle "editorconfig/editorconfig-vim"
+Bundle 'AndrewRadev/splitjoin.vim'
+" Bundle 'godlygeek/tabular'
+Bundle 'junegunn/vim-easy-align'
+Bundle 'editorconfig/editorconfig-vim'
 
-Bundle "kien/rainbow_parentheses.vim"
-Bundle "bronson/vim-trailing-whitespace"
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'mattn/gist-vim'
+
+" Bundle 'majutsushi/tagbar'
+" Tagbar
+" nmap <F9> :TagbarToggle<CR>
+" let g:tagbar_autofocus = 1
 
 " vim-scripts repos
 "Bundle 'L9'
@@ -169,8 +178,11 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 let NERDTreeShowBookmarks=1
 " let NERDTreeWinPos = "right"
 
+" TODO: remove
 " NerdCommenter
-let NERDSpaceDelims=1
+" let NERDSpaceDelims=1
+" tcomment
+map <leader>cs :TCommentBlock<CR>
 
 " SuperTab
 " let g:SuperTabDefultCompletionType='context'
@@ -185,11 +197,12 @@ let g:netrw_keepdir= 0
 let g:netrw_altv = 1
 let g:netrw_list_hide = '^\..*'
 
+" TODO: remove
 " for code alignment
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
+" nmap <Leader>a= :Tabularize /=<CR>
+" vmap <Leader>a= :Tabularize /=<CR>
+" nmap <Leader>a: :Tabularize /:\zs<CR>
+" vmap <Leader>a: :Tabularize /:\zs<CR>
 
 " settings for kien/rainbow_parentheses.vim
 let g:rbpt_colorpairs = [
@@ -218,6 +231,26 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" Aireline
+set ttimeoutlen=50
+
+let g:airline_symbols = {}
+
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_enable_fugitive=1
+let g:airline_section_b='%{fugitive#statusline()}'
+let g:airline_section_c="%t"
+let g:airline_section_x="%y"
+let g:airline_section_y='BN: %{bufnr("%")}'
+
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = 'L'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.whitespace = 'Ξ'
+
 " Strip trailing whitespace
 map <leader><space> :FixWhitespace<cr>
 
@@ -230,9 +263,6 @@ let g:user_zen_expandabbr_key = '<c-e>'
 "set statusline+=%*
 let g:syntastic_enable_signs=1
 "let g:syntastic_auto_loc_list=1
-
-" Vim-Powerline settings
-"let g:Powerline_symbols = 'fancy'
 
 " ctrlp config
 " exclude directories or files from the search
@@ -361,7 +391,7 @@ function! Stab()
   endif
   call SummarizeTabs()
 endfunction
-  
+
 function! SummarizeTabs()
   try
     echohl ModeMsg
