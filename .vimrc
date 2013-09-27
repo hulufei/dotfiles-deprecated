@@ -49,6 +49,10 @@ Bundle 'editorconfig/editorconfig-vim'
 
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'bronson/vim-trailing-whitespace'
+
+" gist-vim-setup
+" git config --global github.user username
+" git config --global github.token token[Fetch From Github Settings]
 Bundle 'mattn/gist-vim'
 
 " Bundle 'majutsushi/tagbar'
