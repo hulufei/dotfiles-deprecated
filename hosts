@@ -1,6 +1,10 @@
+127.0.0.1 localhost
 #UPDATE:2013-05-25 11:50
 
+14.17.85.5 club.vipshop.com
+14.17.91.5 club.vipshop.com
 127.0.0.1	localhost
+192.168.0.111 developer.vipshop
 #SmartHosts START
 
 #Google Services START
@@ -739,18 +743,6 @@
 203.208.46.206	www.youtube.com
 203.208.46.206	ytimg.l.google.com
 #YouTube END
-
-#GitHub START
-204.232.175.78	documentcloud.github.com
-207.97.227.239	github.com
-204.232.175.94	gist.github.com
-107.20.136.254	help.github.com
-207.97.227.252	nodeload.github.com
-199.27.76.130	raw.github.com
-107.22.3.110	status.github.com
-204.232.175.78	training.github.com
-207.97.227.243	www.github.com
-#GitHub END
 
 #Feedly START
 173.194.79.141	feedly-beta.appspot.com
