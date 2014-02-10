@@ -13,7 +13,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
-" Bundle 'scrooloose/nerdcommenter'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
@@ -23,7 +22,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
-" Bundle 'Lokaltog/vim-powerline'
 Bundle 'bling/vim-airline'
 Bundle 'mattn/zencoding-vim'
 Bundle 'Lokaltog/vim-easymotion'
@@ -34,7 +32,6 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'Raimondi/delimitMate'
 Bundle 'hulufei/vim-indexed-search'
-" Bundle 'benmills/vimux'
 
 " vim-snipmate
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -49,11 +46,7 @@ Bundle 'editorconfig/editorconfig-vim'
 
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'bronson/vim-trailing-whitespace'
-
-" gist-vim-setup
-" git config --global github.user username
-" git config --global github.token token[Fetch From Github Settings]
-Bundle 'mattn/gist-vim'
+Bundle 'junegunn/goyo.vim'
 
 " Bundle 'majutsushi/tagbar'
 " Tagbar
@@ -73,6 +66,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" Windows
 " set backupdir=~/.vim/backups//,E:/hulufei/tmp/backup//
 " set directory=~/.vim/swps//,E:/hulufei/tmp/swp//
 " Centralize backups, swapfiles and undo history
@@ -182,9 +176,6 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 let NERDTreeShowBookmarks=1
 " let NERDTreeWinPos = "right"
 
-" TODO: remove
-" NerdCommenter
-" let NERDSpaceDelims=1
 " tcomment
 map <leader>cs :TCommentBlock<CR>
 
@@ -262,16 +253,14 @@ map <leader><space> :FixWhitespace<cr>
 let g:user_zen_expandabbr_key = '<c-e>'
 
 "Enable Syntastic plugin
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
 let g:syntastic_enable_signs=1
-"let g:syntastic_auto_loc_list=1
 
 " ctrlp config
 " exclude directories or files from the search
-set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
-" set wildignore+=tmp\*,*.swp,*.zip,*.exe,*.pyc   " Windows
+" MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store
+" Windows
+" set wildignore+=tmp\*,*.swp,*.zip,*.exe,*.pyc
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|node_modules$'
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_match_window = 'order:ttb,max:20'
@@ -293,9 +282,6 @@ nmap <leader>l :set list!<CR>
 set lcs=tab:▸\ ,eol:¬,nbsp:_
 
 " Keybindings for plugin toggle
-" nmap <F5> :TagbarToggle<cr>
-" nmap <F6> :NERDTreeToggle<cr>
-" nmap <F3> :GundoToggle<cr>
 nmap <F4> :IndentGuidesToggle<cr>
 nnoremap <leader>a :Ack
 
@@ -332,13 +318,6 @@ autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 autocmd VimResized * :wincmd =
 " Autosave
 " au InsertLeave <buffer> write
-
-" Enable omni completion.
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-" autocmd FileType c setlocal omnifunc=ccomplete#Complete
 
 " Return indent (all whitespace at start of a line), converted from
 " tabs to spaces if what = 1, or from spaces to tabs otherwise.
@@ -449,9 +428,3 @@ set background=dark
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 " set background=dark
-
-" TODO: test in linux, maybe move to .vimrc.local as set clipboard to unamed
-" Cut/Copy/Paste as global
-" Use Ctrl-Q for block visual mode, see http://goo.gl/8EpnR
-" source $VIMRUNTIME/mswin.vim
-" behave mswin
