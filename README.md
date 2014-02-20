@@ -1,11 +1,10 @@
-config
+About
 ======
 
-personal configuration and necessary files
+Personal configuration and necessary files for Linux/Mac
 
-.extra custom for [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
-
-move .dropbox-dist to ~/
+- .extra is a custom file for [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
+- Move .dropbox-dist/ to ~/ to install dropbox in Linux
 
 **Mac**
 
