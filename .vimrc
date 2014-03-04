@@ -40,7 +40,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'hulufei/vim-snippets'
 
 Bundle 'AndrewRadev/splitjoin.vim'
-" Bundle 'godlygeek/tabular'
+Bundle 'godlygeek/tabular'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'editorconfig/editorconfig-vim'
 
@@ -192,12 +192,11 @@ let g:netrw_keepdir= 0
 let g:netrw_altv = 1
 let g:netrw_list_hide = '^\..*'
 
-" TODO: remove
 " for code alignment
-" nmap <Leader>a= :Tabularize /=<CR>
-" vmap <Leader>a= :Tabularize /=<CR>
-" nmap <Leader>a: :Tabularize /:\zs<CR>
-" vmap <Leader>a: :Tabularize /:\zs<CR>
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
 
 " settings for kien/rainbow_parentheses.vim
 let g:rbpt_colorpairs = [
