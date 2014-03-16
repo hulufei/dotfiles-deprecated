@@ -316,6 +316,8 @@ au FileType javascript setlocal foldmarker={,}
 au BufRead,BufNewFile *.{md,markdown} set filetype=markdown
 " Treat .json files as .js
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+" Treat .ejs files as .html
+autocmd BufNewFile,BufRead *.ejs set filetype=html
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 " Autosave
