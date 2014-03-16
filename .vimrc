@@ -23,7 +23,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
 Bundle 'bling/vim-airline'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/ZoomWin'
@@ -248,8 +248,11 @@ let g:airline_symbols.whitespace = 'Ξ'
 " Strip trailing whitespace
 map <leader><space> :FixWhitespace<cr>
 
-"Key mapping for zen coding
-let g:user_zen_expandabbr_key = '<c-e>'
+"Key mapping for zen coding(emmet)
+" autocmd FileType html,css EmmetInstall
+" let g:user_emmet_mode = 'a'
+" let g:user_emmet_install_global = 0
+let g:user_emmet_expandabbr_key = '<c-e>'
 
 "Enable Syntastic plugin
 let g:syntastic_enable_signs=1
