@@ -1,15 +1,13 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
+" let Vundle manage Vundle
+" required!
 Plugin 'gmarik/Vundle.vim'
 
+"
 " My Bundles here:
 "
 " original repos on github
@@ -42,12 +40,12 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'hulufei/vim-snippets'
-Plugin
+
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin
+
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'junegunn/goyo.vim'
@@ -220,25 +218,11 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" Aireline
-set ttimeoutlen=50
-
-let g:airline_symbols = {}
-
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_enable_fugitive=1
-let g:airline_section_b='%{fugitive#statusline()}'
-let g:airline_section_c="%t"
-let g:airline_section_x="%y"
-let g:airline_section_y='BN: %{bufnr("%")}'
-
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = 'L'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.whitespace = 'Ξ'
+" Airline
+set t_Co=256
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Strip trailing whitespace
 map <leader><space> :FixWhitespace<cr>
@@ -430,7 +414,3 @@ endif
 
 set background=dark
 " colorscheme solarized
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-" set background=dark
