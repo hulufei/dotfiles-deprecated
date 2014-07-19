@@ -401,6 +401,13 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+" Copy current buffer path relative to root of VIM session to system clipboard
+nnoremap <Leader>yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
+" Copy current filename to system clipboard
+nnoremap <Leader>yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
+" Copy current buffer path without filename to system clipboard
+nnoremap <Leader>yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
+
 " Why is VIM not detecting my coffescript filetype?
 " The solution is to move syntax enable to the bottom of vimrc.
 " http://goo.gl/E98yYi
