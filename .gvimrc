@@ -1,4 +1,4 @@
-set background=light
+" set background=light
 colorscheme solarized
 set ch=2 " Make command line two lines high
 
@@ -28,4 +28,4 @@ set go-=L
 " Use 14pt Menlo
 set guifont=Menlo:h12
 " Better line-height
-set linespace=8
+set linespace=5
