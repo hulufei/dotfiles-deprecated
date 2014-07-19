@@ -1,64 +1,59 @@
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-"
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
 " My Bundles here:
 "
 " original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
 " enhance surround.vim, . to repeat command
-Bundle 'tpope/vim-repeat'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'groenewege/vim-less'
-Bundle 'wavded/vim-stylus'
-Bundle 'bling/vim-airline'
-Bundle 'mattn/emmet-vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'mileszs/ack.vim'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'nelstrom/vim-visual-star-search'
-Bundle 'Raimondi/delimitMate'
-Bundle 'hulufei/vim-indexed-search'
+Plugin 'tpope/vim-repeat'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'groenewege/vim-less'
+Plugin 'wavded/vim-stylus'
+Plugin 'bling/vim-airline'
+Plugin 'mattn/emmet-vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'mileszs/ack.vim'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'nelstrom/vim-visual-star-search'
+Plugin 'Raimondi/delimitMate'
+Plugin 'hulufei/vim-indexed-search'
 
 " vim-snipmate
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'hulufei/vim-snippets'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'hulufei/vim-snippets'
+Plugin
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'junegunn/goyo.vim'
 
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'editorconfig/editorconfig-vim'
-
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'junegunn/goyo.vim'
-
-" Bundle 'majutsushi/tagbar'
-" Tagbar
-" nmap <F9> :TagbarToggle<CR>
-" let g:tagbar_autofocus = 1
-
-" vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-"
-" non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
