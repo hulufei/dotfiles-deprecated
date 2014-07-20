@@ -1,3 +1,5 @@
+ZSH_THEME="ys"
+
 # git alias
 git config --global alias.undo-commit 'reset --soft HEAD^'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
