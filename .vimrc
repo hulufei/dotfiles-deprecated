@@ -44,6 +44,10 @@ Plugin 'wavded/vim-stylus'
 Plugin 'mattn/emmet-vim'
 Plugin 'digitaltoad/vim-jade'
 
+" Tagbar(js)
+Plugin 'majutsushi/tagbar'
+Plugin 'marijnh/tern_for_vim'
+
 " vim-snipmate
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
