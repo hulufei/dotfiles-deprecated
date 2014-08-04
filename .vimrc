@@ -43,6 +43,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'wavded/vim-stylus'
 Plugin 'mattn/emmet-vim'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " Tagbar(js)
 Plugin 'majutsushi/tagbar'
