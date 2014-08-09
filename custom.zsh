@@ -8,6 +8,7 @@ git config --global alias.amend-commit 'git commit --amend -C HEAD'
 # Fix tmux status-utf8 issue, or force tmux to use utf8: `tmux -u`
 # http://goo.gl/hxBM6q
 export LANG=en_us.UTF-8
+export FIS_SERVER_DOCUMENT_ROOT='~/scrat-tmp'
 
 # Tmuxifier
 export EDITOR=vim
