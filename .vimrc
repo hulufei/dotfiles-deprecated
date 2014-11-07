@@ -38,6 +38,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 
 " Front-end related
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'groenewege/vim-less'
 Plugin 'wavded/vim-stylus'
@@ -244,6 +246,10 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 
 "Enable Syntastic plugin
 let g:syntastic_enable_signs=1
+let g:syntastic_javascript_checkers = ['jsxhint', 'jshint']
+
+" JSX
+let g:jsx_ext_required = 0
 
 " ctrlp config
 " exclude directories or files from the search
