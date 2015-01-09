@@ -13,6 +13,8 @@ Plugin 'gmarik/Vundle.vim'
 " original repos on github
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
+" ]n and [n jump to conflict section is awesome
+Plugin 'tpope/vim-unimpaired'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
@@ -246,7 +248,7 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 
 "Enable Syntastic plugin
 let g:syntastic_enable_signs=1
-let g:syntastic_javascript_checkers = ['jsxhint', 'jshint']
+let g:syntastic_javascript_checkers = ['jsxhint']
 
 " JSX
 let g:jsx_ext_required = 0
