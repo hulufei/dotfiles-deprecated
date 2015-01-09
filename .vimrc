@@ -433,3 +433,16 @@ endif
 
 set background=dark
 " colorscheme solarized
+
+" Vim diff colorscheme
+" Another trick: `:syntax off` in diff
+" highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+
+" highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
+highlight DiffAdd cterm=none ctermfg=White ctermbg=Blue gui=none guifg=White guibg=Blue
+highlight DiffDelete cterm=none ctermfg=White ctermbg=Blue gui=none guifg=White guibg=Blue
+highlight DiffChange cterm=none ctermfg=White ctermbg=Blue gui=none guifg=White guibg=Blue
+highlight DiffText cterm=none ctermfg=Black ctermbg=White gui=none guifg=Black guibg=White
