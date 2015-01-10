@@ -13,6 +13,8 @@ Plugin 'gmarik/Vundle.vim'
 " original repos on github
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
+" ]n and [n jump to conflict section is awesome
+Plugin 'tpope/vim-unimpaired'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
@@ -38,6 +40,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 
 " Front-end related
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'groenewege/vim-less'
@@ -246,6 +250,10 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 "Enable Syntastic plugin
 let g:syntastic_enable_signs=1
 let g:syntastic_json_checkers = ['jsonlint']
+let g:syntastic_javascript_checkers = ['jsxhint']
+
+" JSX
+let g:jsx_ext_required = 0
 
 " ctrlp config
 " exclude directories or files from the search
@@ -256,6 +264,8 @@ set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_S
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|node_modules$'
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_match_window = 'order:ttb,max:20'
+" Ignore files in .gitignore
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Vim-indent
 let g:indent_guides_guide_size=1
@@ -425,3 +435,16 @@ endif
 
 set background=dark
 " colorscheme solarized
+
+" Vim diff colorscheme
+" Another trick: `:syntax off` in diff
+" highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+
+" highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
+highlight DiffAdd cterm=none ctermfg=White ctermbg=Blue gui=none guifg=White guibg=Blue
+highlight DiffDelete cterm=none ctermfg=White ctermbg=Blue gui=none guifg=White guibg=Blue
+highlight DiffChange cterm=none ctermfg=White ctermbg=Blue gui=none guifg=White guibg=Blue
+highlight DiffText cterm=none ctermfg=Black ctermbg=White gui=none guifg=Black guibg=White
