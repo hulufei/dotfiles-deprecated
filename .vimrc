@@ -39,6 +39,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 
 " Front-end related
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
 Plugin 'groenewege/vim-less'
 Plugin 'wavded/vim-stylus'
 Plugin 'mattn/emmet-vim'
@@ -244,6 +245,7 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 
 "Enable Syntastic plugin
 let g:syntastic_enable_signs=1
+let g:syntastic_json_checkers = ['jsonlint']
 
 " ctrlp config
 " exclude directories or files from the search
