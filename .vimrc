@@ -38,6 +38,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'mbbill/undotree'
 
 " Front-end related
 Plugin 'pangloss/vim-javascript'
@@ -74,8 +75,11 @@ endif
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
-if exists("&undodir")
-  set undodir=~/.vim/undo
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+    set undolevels=1000         " Maximum number of changes that can be undone
+    set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
 endif
 
 set clipboard=unnamed " yank and paste with the system clipboard
@@ -180,6 +184,11 @@ let NERDTreeShowBookmarks=1
 
 " tcomment
 map <leader>cs :TCommentBlock<CR>
+
+" Undotree
+nnoremap <leader>u :UndotreeToggle<CR>
+" if undotree is opened, it is likely one wants to interact with it.
+let g:undotree_SetFocusWhenToggle=1
 
 " SuperTab
 " let g:SuperTabDefultCompletionType='context'
