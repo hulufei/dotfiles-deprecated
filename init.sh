@@ -14,6 +14,9 @@ rm -f ~/.tmux.conf.orig
 mv ~/.tmux.conf ~/.tmux.conf.orig
 ln .tmux.conf ~/
 
+# Git config
+git config --global merge.tool vimdiff
+
 mkdir -p ~/.vim/backups
 mkdir -p ~/.vim/swaps
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
