@@ -30,7 +30,6 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'mileszs/ack.vim'
-" Plugin 'rking/ag.vim'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'Raimondi/delimitMate'
 Plugin 'hulufei/vim-indexed-search'
@@ -298,7 +297,6 @@ set lcs=tab:▸\ ,eol:¬,nbsp:_
 " Keybindings for plugin toggle
 nmap <F4> :IndentGuidesToggle<cr>
 nnoremap <leader>a :Ack
-" nnoremap <leader>a :Ag
 
 " splitjoin
 nmap sj :SplitjoinSplit<cr>
@@ -414,7 +412,6 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   let g:ackprg = 'ag --nogroup --nocolor --column'
-  " let g:ackprg = 'ag --vimgrep'
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
