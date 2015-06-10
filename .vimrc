@@ -30,6 +30,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'mileszs/ack.vim'
+" Plugin 'rking/ag.vim'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'Raimondi/delimitMate'
 Plugin 'hulufei/vim-indexed-search'
@@ -147,6 +148,9 @@ set ambiwidth=double
 set sessionoptions+=resize
 
 set iskeyword+=-
+
+" Prevent strange backspace behaviour in mac terminal
+set backspace=indent,eol,start
 
 " Use relative line numbers, new in Vim 7.3
 if exists("&relativenumber")
@@ -273,7 +277,7 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|node_modules$'
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_match_window = 'order:ttb,max:20'
 " Ignore files in .gitignore
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Vim-indent
 let g:indent_guides_guide_size=1
@@ -294,6 +298,7 @@ set lcs=tab:▸\ ,eol:¬,nbsp:_
 " Keybindings for plugin toggle
 nmap <F4> :IndentGuidesToggle<cr>
 nnoremap <leader>a :Ack
+" nnoremap <leader>a :Ag
 
 " splitjoin
 nmap sj :SplitjoinSplit<cr>
@@ -405,13 +410,16 @@ endfunction
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-  let g:ackprg = 'ag --nogroup --column'
-
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
 
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+  " let g:ackprg = 'ag --vimgrep'
+
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 endif
 
 " Copy current buffer path relative to root of VIM session to system clipboard
@@ -420,6 +428,9 @@ nnoremap <Leader>yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"
 nnoremap <Leader>yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
 " Copy current buffer path without filename to system clipboard
 nnoremap <Leader>yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Why is VIM not detecting my coffescript filetype?
 " The solution is to move syntax enable to the bottom of vimrc.
