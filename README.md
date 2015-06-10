@@ -18,6 +18,7 @@ Personal configuration and necessary files for Linux/Mac
 
 **Mac**
 
+- `brew install the_silver_searcher`
 - [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 - [quick-look-plugins](https://github.com/sindresorhus/quick-look-plugins)
 - [Hacker's Guide to Setting up Your Mac](http://lapwinglabs.com/blog/hacker-guide-to-setting-up-your-mac)
