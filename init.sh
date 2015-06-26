@@ -33,6 +33,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 # Node setup
 brew install nvm
+nvm alias default stable
 nvm install stable
 
 brew install the_silver_searcher
