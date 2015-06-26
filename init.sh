@@ -27,3 +27,18 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 ln custom.zsh ~/.oh-my-zsh/custom/
 chsh -s $(which zsh)
+
+# Homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Node setup
+brew install nvm
+nvm install stable
+
+brew install the_silver_searcher
+
+# fasd
+git clone https://github.com/clvv/fasd.git
+cd fasd
+sudo make install
+cd ..
